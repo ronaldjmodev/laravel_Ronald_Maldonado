@@ -12,11 +12,11 @@
         @foreach ($course as $capacitacion) <!-- Cambiar el nombre de la variable para ser consistente -->
         <div class="col-sm">
             <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="Imagen del curso"> <!-- Cambia la imagen según tus necesidades -->
+                <img style="height: 200px; width:250px; margin:20px" src="{{ Storage::url($capacitacion->imagen) }}" class="card-img-top mx-auto d-block" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">{{ $capacitacion->nombre }}</h5>
                   <p class="card-text">{{ $capacitacion->descripcion }}</p>
-                  <a href="#" class="btn btn-success">Ver detalles</a> <!-- Cambia el enlace según sea necesario -->
+                  <a href="/cursos/{{$capacitacion->id}}" class="btn btn-success">Ver detalles</a> <!-- Cambia el enlace según sea necesario -->
                 </div>
             </div>
         </div>

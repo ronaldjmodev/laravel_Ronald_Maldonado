@@ -1,27 +1,40 @@
 @extends('layouts.car')
 
-@section('titulo', 'car_types.store')
+@section('titulo', 'Crear Tipo de Carro')
 
 @section('contenido')
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Create Car Type</h1>
-            <form action="{{ route('car_types.store') }}" method="POST">
-                @csrf
-                <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" name="nombre" id="nombre" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="cantidad">Cantidad</label>
-                    <input type="number" name="cantidad" id="cantidad" class="form-control" required>
-                </div>
-                <button type="submit" class="btn btn-success">Guardar</button>
-            </form>
-        </div>
+<br>
+<h3>Crear Tipo de Carro</h3>
+<form action="/car_types" method="post" enctype="multipart/form-data">
+    @csrf
+    <div class="mb-3">
+        <label for="nombrecarros" class="form-label">Nombre del Carro</label>
+        <input type="text" class="form-control" id="nombrecarros" name="nombre" required>
     </div>
-</div>
+    <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción del Carro</label>
+        <input type="text" class="form-control" id="descripcion" name="descripcion" required>
+    </div>
+    <div class="form-group">
+        <label for="imagen">Cargar imagen</label>
+        <br>
+        <input name="imagen" id="imagen" type="file" required>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-success">Guardar</button>
+</form>
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 @endsection
+
 

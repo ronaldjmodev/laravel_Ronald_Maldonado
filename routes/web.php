@@ -7,10 +7,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/saludo', function () {
-    return 'Hola Mundo';
-});
-
 
 Route::resource('/cursos', CursoController::class);
 Route::resource('/car_types', CarTypeController::class);

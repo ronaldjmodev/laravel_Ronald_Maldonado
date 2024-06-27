@@ -9,4 +9,6 @@ class Curso extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['nombre','descripcion','imagen'];
+
        }

@@ -9,6 +9,6 @@ class CarType extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nombre', 'cantidad','marca', 'modelo', ];
+    protected $fillable = ['nombre','descripcion','imagen'];
 
 }

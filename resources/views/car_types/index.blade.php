@@ -4,36 +4,23 @@
 
 @section('titulo', 'Car Types')
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Car Types</h1>
-            <a href="{{ route('car_types.create') }}" class="btn btn-success mb-3">Crear Car Type</a>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Cantidad</th>
-                        <th>Marca</th>
-                        <th>Modelo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($carTypes as $TiposCarros)
-                    <tr>
-                        <td>{{ $TiposCarros->id }}</td>
-                        <td>{{ $TiposCarros->nombre }}</td>
-                        <td>{{ $TiposCarros->cantidad }}</td>
-                        <td>{{ $TiposCarros->marca }}</td>
-                        <td>
-                            <!-- Action buttons -->
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+
+<br>
+<h1 class="text-center">Listado de Carros Disponibles</h1>
+<br>
+<div class="row">
+    @foreach ($carTypes as $TiposCarros) <!-- Cambiar el nombre de la variable para ser consistente -->
+    <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+            <img style="height: 200px; width:250px; margin:20px" src="{{ Storage::url($TiposCarros->imagen) }}" class="card-img-top mx-auto d-block" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ $TiposCarros->nombre }}</h5>
+              <p class="card-text">{{ $TiposCarros->descripcion }}</p>
+              <a href="/car_types/{{$TiposCarros->id}}" class="btn btn-success">Ver detalles</a> <!-- Cambia el enlace según sea necesario -->
+            </div>
         </div>
     </div>
+
+@endforeach
 </div>
 @endsection
